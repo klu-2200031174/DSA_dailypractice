@@ -1,0 +1,52 @@
+🧩 Problem: Maximum Number After One Digit Change
+
+You are given an integer n.
+
+You are allowed to change at most one digit in the number (0–9).
+
+Return the maximum possible number you can obtain after performing at most one change.
+
+📌 Input
+
+An integer n
+
+📌 Output
+
+An integer representing the maximum possible number after at most one digit change
+
+📌 Examples
+Example 1
+Input: 2736  
+Output: 9736
+Example 2
+Input: 9973  
+Output: 9993
+Example 3
+Input: 9  
+Output: 9
+⚠️ Constraints
+You can change only one digit or none
+Digits range from 0 to 9
+Number is non-negative
+🎯 Your Task
+
+Write a function:
+
+def maximumNumber(n):
+
+//SOLUTION
+def maximumNumber(n):
+    s = str(n)
+    digits = list(s)
+    max_num = n
+
+    for i in range(len(digits)):
+        temp = digits[:]        # copy list
+
+        temp[i] = '9'           # change one digit
+
+        new_num = int("".join(temp))  # convert back
+
+        max_num = max(max_num, new_num)
+
+    return max_num
